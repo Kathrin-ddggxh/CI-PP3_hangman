@@ -1,4 +1,5 @@
 import random
+import string
 from words import words
 
 def get_word(words):
@@ -11,6 +12,16 @@ def get_word(words):
     return word
 
 word = get_word(words)
-print(word)
+
+def render_game():
+    """
+    Runs the game by asking user for letter input
+    """ 
+    player_letter = input("Guess a letter:\n").upper()
+
+    return player_letter
+
+
+print(render_game())
 
 
