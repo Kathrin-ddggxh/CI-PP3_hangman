@@ -44,6 +44,29 @@ def check_letter():
         print("This one isn't valid. Please only guess letters!")
 
 
+def display_word():
+    """
+    Shows user correctly guessed letters
+    """
+    correct_letters = [letter if letter in used_letters else "_" for letter in word]
+    print(f"Try to guess this word: {' '.join(correct_letters)}")
+    
+
+def run_game():
+    """
+    Runs a loop to determine when game is finished
+    """
+    while len(word_letters) > 0:
+        print(f"You've already used these letter: {' '.join(used_letters)}")
+
+        display_word()
+
+        check_letter()
+
+        if len(word_letters) == 0:
+            break
+
+
 word = get_word(words)
 word_letters = set(word)
 alphabet = set(string.ascii_uppercase)
@@ -54,7 +77,8 @@ def main():
     """
     Runs entire application
     """
-    check_letter()
+    run_game()
+    #check_letter()
 
 
 main()
