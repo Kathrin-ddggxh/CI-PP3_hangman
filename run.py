@@ -154,8 +154,7 @@ def main():
     Runs entire application
     """
     run_game()
-    #check_letter()
-
+    
 
 main()
 
