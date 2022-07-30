@@ -4,7 +4,66 @@ from words import words
 
 alphabet = set(string.ascii_uppercase)
 used_letters = set() # stores letters already guessed
-lives = 6 # equivalent to number of strokes in hangman image 
+lives = 7 # equivalent to number of strokes in hangman image 
+
+lives_images = {
+    0: """
+            ___________
+            | /        | 
+            |/        ( )
+            |          |
+            |         / \\
+            |
+        """,
+    1: """
+            ___________
+            | /        | 
+            |/        ( )
+            |          |
+            |         / 
+            |
+        """,
+    2: """
+            ___________
+            | /        | 
+            |/        ( )
+            |          |
+            |          
+            |
+        """,
+    3: """
+            ___________
+            | /        | 
+            |/        ( )
+            |          
+            |          
+            |
+        """,
+    4: """
+            ___________
+            | /        | 
+            |/        
+            |          
+            |          
+            |
+        """,
+    5: """
+            ___________
+            | /        
+            |/        
+            |          
+            |          
+            |
+        """,
+    6: """
+            |
+            |
+            |
+            |
+            |
+        """,
+    7: "",
+}
 
 
 def get_word(words):
@@ -46,11 +105,9 @@ def check_letter():
     # adds guessed letter to used letters set
     if player_letter in alphabet - used_letters:
         used_letters.add(player_letter)
-        print("not yet guessed")
         # removes correctly guessed letter from word
         if player_letter in word_letters:
             word_letters.remove(player_letter)
-            print("correct letter")
         else:
             handle_lives()
 
@@ -82,15 +139,14 @@ def run_game():
 
         check_letter()
 
+        print(lives_images[lives])
+
         if lives == 0:
             print(f"Sorry, you're dangling 😢 The word was {word}")
             break
         elif len(word_letters) == 0:
             print("🎉 Well done! You guessed the whole word 🎉")
             break
-
-
-
 
 
 def main():
