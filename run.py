@@ -65,6 +65,29 @@ lives_images = {
     7: "",
 }
 
+class Level:
+    """
+    Level class
+    """
+    def __init__(self, level):
+        self.level = level 
+
+    def decide_level(self):
+        """
+        Decides level based on user input
+        """
+
+        if self.level == "1":
+            return "Easy"
+        elif self.level == "2":
+            return "Medium"
+        elif self.level == "3":
+            return "Hard"
+       
+
+chosen_level = input("Choose your level:\n 1. Easy\n 2. Medium\n 3. Hard\n")
+level = Level(chosen_level).decide_level()
+
 
 def get_word(words):
     """

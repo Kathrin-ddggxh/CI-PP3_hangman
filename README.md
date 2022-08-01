@@ -1,3 +1,10 @@
+# Get Hung ...
+
+... for the lamb, the sheep or the whole herd.
+In this terminal based game of classic Hangman, the player tries to guess a word letter by letter before running out of lives and being sent to the gallows.
+
+This project was built with Python3 as the "Python's Essentials" Project (portfolio project 3) for Code Insitute. 
+
 ## Credits
 
 ### Data
