@@ -89,6 +89,28 @@ chosen_level = input("Choose your level:\n 1. Easy\n 2. Medium\n 3. Hard\n")
 level = Level(chosen_level).decide_level()
 
 
+def filter_words(words, level):
+    """
+    Filters words by length into seperate lists
+    depending on chosen level
+    """
+    if level == "Easy":
+        easy = [word for word in words if len(word) <= 5]
+        print(f"{level}: Get hung for the lamb!")
+        return easy
+    elif level == "Medium":
+        Medium = [word for word in words if len(word) < 10]
+        print(f"{level}: Get hung for the sheep!")
+        return Medium
+    elif level == "Hard":
+        hard = [word for word in words if len(word) >= 10]
+        return hard
+    else:
+        print("Please only enter 1, 2 or 3")
+      
+word_list = filter_words(words, level)
+
+
 def get_word(words):
     """
     Returns random word from words list
