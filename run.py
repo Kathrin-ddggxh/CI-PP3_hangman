@@ -6,6 +6,14 @@ alphabet = set(string.ascii_uppercase)
 used_letters = set() # stores letters already guessed
 lives = 10 # equivalent to number of strokes in hangman image 
 
+logo = """
+             ()))))    ())))))   (((())))     ()    ()   ()    ()   ()    ()    ()))))   
+            ()    ()   ()           ()        ()    ()   ()    ()   ()))  ()   ()    ()
+            ()         ())))        ()        ()(())()   ()    ()   () () ()   ()
+            ()   (((   ()           ()        ()    ()   ()    ()   ()  ((()   ()   (((
+             ()))))    ())))))      ()        ()    ()    ((()))    ()    ()    ()))))
+        """
+
 lives_images = {
     0: """
             ___________
@@ -239,7 +247,6 @@ def main():
 
     run_game()
     
-
 main()
 
 
