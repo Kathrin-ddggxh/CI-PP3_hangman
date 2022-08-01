@@ -120,7 +120,7 @@ def get_word(words):
 
     return word
 
-word = get_word(words)
+word = get_word(word_list)
 word_letters = set(word)
 
 def get_user_input():
@@ -196,8 +196,12 @@ def run_game():
 
 def main():
     """
-    Runs entire application
+    Runs entire application and shows game intro
     """
+    print("Welcome! And try not to get hung...\n")
+    print("First, choose your skill level. The word you have to guess gets longer the higher your level is.\n")
+    print("Then try and guess the mystery word one letter at a time before you're out of lives.\n")
+
     run_game()
     
 

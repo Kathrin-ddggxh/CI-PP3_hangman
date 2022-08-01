@@ -5,6 +5,12 @@ In this terminal based game of classic Hangman, the player tries to guess a word
 
 This project was built with Python3 as the "Python's Essentials" Project (portfolio project 3) for Code Insitute. 
 
+## Bugs
+
+**Word not displaying fully when game won**:
+
+After entering the last letter of the fully guessed word, the last letter is not added to the word display. Therefore the finished word doesn't display properly.
+
 ## Credits
 
 ### Data
