@@ -212,6 +212,17 @@ def display_word():
     """
     correct_letters = [letter if letter in used_letters else "_" for letter in word]
     print(f"Try to guess this word: {' '.join(correct_letters)}")
+
+
+def run_intro():
+    """
+    Displays logo and game introduction and rules
+    """
+    print(logo)
+    print("Welcome! And try not to get hung...\n")
+    print("First, choose your skill level. The word you have to guess gets longer the higher your level is.\n")
+    print("Then try and guess the mystery word one letter at a time before you're out of lives.\n")
+    print("You'll start off with 10 lives. For each wrong guess you lose one and your gallows gets built more until you dangle.\n GOOD LUCK 🤞\n")
     
 
 def run_game():
@@ -240,11 +251,7 @@ def main():
     """
     Runs entire application and shows game intro
     """
-    print("Welcome! And try not to get hung...\n")
-    print("First, choose your skill level. The word you have to guess gets longer the higher your level is.\n")
-    print("Then try and guess the mystery word one letter at a time before you're out of lives.\n")
-    print("You'll start off with 10 lives. For each wrong guess you lose one and your gallows gets built more until you dangle.\n GOOD LUCK 🤞\n")
-
+    run_intro()
     run_game()
     
 main()
