@@ -4,13 +4,14 @@ from words import words
 
 alphabet = set(string.ascii_uppercase)
 used_letters = set() # stores letters already guessed
-lives = 7 # equivalent to number of strokes in hangman image 
+lives = 10 # equivalent to number of strokes in hangman image 
 
 lives_images = {
     0: """
             ___________
             | /        | 
             |/        ( )
+            |         \\|/ 
             |          |
             |         / \\
             |
@@ -19,50 +20,83 @@ lives_images = {
             ___________
             | /        | 
             |/        ( )
+            |         \\| 
             |          |
-            |         / 
+            |         / \\
             |
         """,
     2: """
             ___________
             | /        | 
             |/        ( )
+            |          | 
             |          |
-            |          
+            |         / \\
             |
         """,
     3: """
             ___________
             | /        | 
             |/        ( )
-            |          
-            |          
+            |          |
+            |          |
+            |         / 
             |
         """,
     4: """
             ___________
             | /        | 
-            |/        
-            |          
-            |          
+            |/        ( )
+            |          |
+            |          |
+            |
             |
         """,
     5: """
             ___________
-            | /        
-            |/        
+            | /        | 
+            |/        ( )
             |          
             |          
+            |
             |
         """,
     6: """
+            ___________
+            | /        | 
+            |/        
+            |          
+            | 
+            |         
+            |
+        """,
+    7: """
+            ___________
+            | /        
+            |/        
+            |          
+            |
+            |          
+            |
+        """,
+    8: """
+            ___________
+            |         
+            |
+            |        
+            |          
+            |          
+            |
+        """,
+    9: """
+            |
             |
             |
             |
             |
             |
         """,
-    7: "",
+    10: "",
 }
 
 class Level:
@@ -201,6 +235,7 @@ def main():
     print("Welcome! And try not to get hung...\n")
     print("First, choose your skill level. The word you have to guess gets longer the higher your level is.\n")
     print("Then try and guess the mystery word one letter at a time before you're out of lives.\n")
+    print("You'll start off with 10 lives. For each wrong guess you lose one and your gallows gets built more until you dangle.\n GOOD LUCK 🤞\n")
 
     run_game()
     
