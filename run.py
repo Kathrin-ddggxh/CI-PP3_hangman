@@ -127,9 +127,11 @@ class Level:
         elif self.level == "3":
             return "Hard"
        
+def get_level():
 
-chosen_level = input("Choose your level:\n 1. Easy\n 2. Medium\n 3. Hard\n")
-level = Level(chosen_level).decide_level()
+    chosen_level = input("Choose your level:\n 1. Easy\n 2. Medium\n 3. Hard\n")
+    level = Level(chosen_level).decide_level()
+    return level
 
 
 def filter_words(words, level):
@@ -151,7 +153,7 @@ def filter_words(words, level):
     else:
         print("Please only enter 1, 2 or 3")
       
-word_list = filter_words(words, level)
+
 
 
 def get_word(words):
@@ -163,8 +165,8 @@ def get_word(words):
 
     return word
 
-word = get_word(word_list)
-word_letters = set(word)
+
+
 
 def get_user_input():
     """
@@ -217,7 +219,7 @@ def display_word():
 
 def run_intro():
     """
-    Displays logo and game introduction and rules
+    Displays logo, game introduction and rules
     """
     print(logo)
     print("Welcome! And try not to get hung...\n")
@@ -231,6 +233,7 @@ def run_game():
     Runs a loop to determine when game is finished
     """
     print(word) #remove later
+
     while len(word_letters) > 0 and lives > 0:
         print(f"You've guessed these letters so far: {' '.join(used_letters)}")
 
@@ -252,7 +255,13 @@ def main():
     """
     Runs entire application and shows game intro
     """
+    global level, word_list, word, word_letters
+
     run_intro()
+    level = get_level()
+    word_list = filter_words(words, level)
+    word = get_word(word_list)
+    word_letters = set(word)
     run_game()
     
 main()

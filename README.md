@@ -21,6 +21,13 @@ After entering the last letter of the fully guessed word, the last letter is not
 
     Using MS Word I manually removed all words containing "-" to simplify the game functionality. Also, I adapted the spelling to UK English where it originally differed. 
 
+- **Logo**:
+
+    [Text to ASCII Art Generator](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20)
+
+    Font: Ogre.
+
+
 ### Code
 
 - **Hangman Game**
