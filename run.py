@@ -190,13 +190,33 @@ def get_word(words):
     return word
 
 
-def get_user_input():
+def validate_letter(letter):
+    """
+    Validates user input is letter (a-z)
+    """
+    try:
+        if (letter not in alphabet):
+            raise ValueError(
+                f"Please only guess single letters (a-z). You typed {letter}"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}.\n")
+        return False
+
+    return True
+
+
+def get_user_letter():
     """
     Runs the game by asking user for letter input
     """ 
-    player_letter = input("Guess a letter:\n").upper()
+    while True:
+        user_letter = input("Guess a letter:\n").upper()
 
-    return player_letter
+        if validate_letter(user_letter):
+            break
+
+    return user_letter
 
 
 def handle_lives():
@@ -206,14 +226,14 @@ def handle_lives():
     global lives
     lives = lives - 1 
     print(f"Wrong letter! You have {lives} lives left.")
-    
+
 
 def check_letter():
     """
     Checks if guessed letter has already been guessed 
     and if letter is in word
     """
-    player_letter = get_user_input() # current guessed letter
+    player_letter = get_user_letter() # current guessed letter
     
     # adds guessed letter to used letters set
     if player_letter in alphabet - used_letters:
@@ -229,7 +249,7 @@ def check_letter():
         print("Sorry, you've already guessed this one. Try a different letter!")
     # validate user input is a letter
     else:
-        print("This one isn't valid. Please only guess letters!")
+        print("This one isn't valid. Please only guess single letters!")
 
 
 def display_word():
@@ -248,7 +268,9 @@ def run_intro():
     print("Welcome! And try not to get hung...\n")
     print("First, choose your skill level. The word you have to guess gets longer the higher your level is.\n")
     print("Then try and guess the mystery word one letter at a time before you're out of lives.\n")
-    print("You'll start off with 10 lives. For each wrong guess you lose one and your gallows gets built more until you dangle.\n GOOD LUCK 🤞\n")
+    print("You'll start off with 10 lives. For each wrong guess you lose one and your gallows gets built more until you dangle.\n") 
+    print("If you want to play again, simply restart the game by pressing the RUN GAME button at the top.\n")
+    print("GOOD LUCK 🤞\n")
     
 
 def run_game():
