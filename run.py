@@ -208,7 +208,7 @@ def validate_letter(letter):
 
 def get_user_letter():
     """
-    Runs the game by asking user for letter input
+    Starts the game by asking user for letter input
     """ 
     while True:
         user_letter = input("Guess a letter:\n").upper()
@@ -292,6 +292,7 @@ def run_game():
             print(f"Sorry, you're dangling 😢 The word was {word}")
             break
         elif len(word_letters) == 0:
+            display_word()
             print("🎉 Well done! You guessed the whole word 🎉")
             break
 
