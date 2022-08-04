@@ -121,17 +121,47 @@ class Level:
         """
 
         if self.level == "1":
+            print("Easy: Get hung for the lamb!")
             return "Easy"
         elif self.level == "2":
+            print("Medium: Get hung for the sheep!")
             return "Medium"
         elif self.level == "3":
+            print("Hard: Get hung for the whole herd!")
             return "Hard"
+
+
+def validate_level(value):
+    """
+    Checks if user input for level choice equals only 1, 2 or 3
+    """
+    try:
+        if (value != "1") and (value != "2") and (value != "3"):
+            raise ValueError(
+                f"Please only enter 1, 2 or 3. You typed {value}"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again\n")
+        return False
+
+    return True
+
        
 def get_level():
+    """
+    Gets level value from user and creates word list accordingly
+    """
+    while True:
+        chosen_level = input("Choose your level:\n 1. Easy\n 2. Medium\n 3. Hard\n")
+        level = Level(chosen_level).decide_level()
 
-    chosen_level = input("Choose your level:\n 1. Easy\n 2. Medium\n 3. Hard\n")
-    level = Level(chosen_level).decide_level()
-    return level
+        if validate_level(chosen_level):
+            filter_words(words, level)
+            break
+
+    word_list = filter_words(words, level)
+
+    return word_list
 
 
 def filter_words(words, level):
@@ -140,21 +170,15 @@ def filter_words(words, level):
     depending on chosen level
     """
     if level == "Easy":
-        easy = [word for word in words if len(word) <= 5]
-        print(f"{level}: Get hung for the lamb!")
+        easy = [word for word in words if len(word) < 5]  
         return easy
     elif level == "Medium":
         Medium = [word for word in words if len(word) < 10]
-        print(f"{level}: Get hung for the sheep!")
         return Medium
     elif level == "Hard":
         hard = [word for word in words if len(word) >= 10]
         return hard
-    else:
-        print("Please only enter 1, 2 or 3")
       
-
-
 
 def get_word(words):
     """
@@ -166,8 +190,6 @@ def get_word(words):
     return word
 
 
-
-
 def get_user_input():
     """
     Runs the game by asking user for letter input
@@ -175,6 +197,7 @@ def get_user_input():
     player_letter = input("Guess a letter:\n").upper()
 
     return player_letter
+
 
 def handle_lives():
     """
@@ -258,8 +281,7 @@ def main():
     global level, word_list, word, word_letters
 
     run_intro()
-    level = get_level()
-    word_list = filter_words(words, level)
+    word_list = get_level()
     word = get_word(word_list)
     word_letters = set(word)
     run_game()
