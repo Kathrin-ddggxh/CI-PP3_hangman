@@ -55,3 +55,7 @@ elif len(word_letters) == 0:
 - **Colours**
 
     Built-in module [Colorama](https://github.com/techwithtim/ColoredTextInPython/blob/main/main.py)
+
+- **Timing**
+
+    [time module](https://www.freecodecamp.org/news/the-python-sleep-function-how-to-make-python-wait-a-few-seconds-before-continuing-with-example-commands/#:~:text=Make%20your%20time%20delay%20specific,after%20a%20slight%20delay.%22) and sleep() function

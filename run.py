@@ -1,11 +1,12 @@
-import random
-import string
-from words import words
+import random   # generates random numbers
+import string   # module for string manipulation
+from words import words # imports word list from word.py
 import colorama
-from colorama import Fore, Back, Style
+from colorama import Fore, Back, Style  # enables different coloured text
+from time import sleep  # allows time delay for print statements
 colorama.init(autoreset=True)
 
-alphabet = set(string.ascii_uppercase)
+alphabet = set(string.ascii_uppercase)  # stores letters A-Z
 used_letters = set()  # stores letters already guessed
 lives = 10  # equivalent to number of strokes in hangman image 
 
@@ -269,10 +270,15 @@ def run_intro():
     """
     print(f"{Style.BRIGHT}{Fore.GREEN}{logo}")
     print("Welcome! And try not to get hung...\n")
+    sleep(1)
     print("First, choose your skill level. The word you have to guess gets longer the higher your level is.\n")
+    sleep(.5)
     print("Then try and guess the mystery word one letter at a time before you're out of lives.\n")
+    sleep(.5)
     print(f"You'll start off with {Style.BRIGHT}10 {Style.RESET_ALL}lives. For each wrong guess you lose one and your gallows gets built more until you dangle.\n") 
-    print(f"If you want to play again, simply restart the game by pressing the {Style.DIM}{Fore.GREEN}RUN GAME {Style.RESET_ALL}button at the top.\n")
+    sleep(.5)
+    print(f"If you want to play again, simply restart the game by pressing the {Style.BRIGHT}{Fore.GREEN}RUN GAME {Style.RESET_ALL}button at the top.\n")
+    sleep(.5)
     print(f"{Fore.LIGHTYELLOW_EX}GOOD LUCK 🤞\n")
     
 
