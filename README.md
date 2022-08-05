@@ -48,3 +48,10 @@ elif len(word_letters) == 0:
 - **Hangman ascii visualisation**
 
     Taken from [tutorial repo](https://github.com/kying18/hangman/blob/master/hangman_visual.py)
+
+
+### Styling
+
+- **Colours**
+
+    Built-in module [Colorama](https://github.com/techwithtim/ColoredTextInPython/blob/main/main.py)
