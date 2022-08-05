@@ -1,10 +1,13 @@
 import random
 import string
 from words import words
+import colorama
+from colorama import Fore, Back, Style
+colorama.init(autoreset=True)
 
 alphabet = set(string.ascii_uppercase)
-used_letters = set() # stores letters already guessed
-lives = 10 # equivalent to number of strokes in hangman image 
+used_letters = set()  # stores letters already guessed
+lives = 10  # equivalent to number of strokes in hangman image 
 
 logo = """
    ___     _                              
@@ -121,13 +124,13 @@ class Level:
         """
 
         if self.level == "1":
-            print("Easy: Get hung for the lamb!")
+            print(f"{Style.BRIGHT}{Fore.LIGHTBLUE_EX}Easy:{Style.RESET_ALL} Get hung for the lamb!\n")
             return "Easy"
         elif self.level == "2":
-            print("Medium: Get hung for the sheep!")
+            print(f"{Style.BRIGHT}{Fore.LIGHTYELLOW_EX}Medium:{Style.RESET_ALL} Get hung for the sheep!\n")
             return "Medium"
         elif self.level == "3":
-            print("Hard: Get hung for the whole herd!")
+            print(f"{Style.BRIGHT}{Fore.LIGHTRED_EX}Hard:{Style.RESET_ALL} Get hung for the whole herd!\n")
             return "Hard"
 
 
@@ -138,10 +141,10 @@ def validate_level(value):
     try:
         if (value != "1") and (value != "2") and (value != "3"):
             raise ValueError(
-                f"Please only enter 1, 2 or 3. You typed {value}"
+                f"Please only enter 1, 2 or 3. You typed {Style.BRIGHT}{value}{Style.RESET_ALL}"
             )
     except ValueError as e:
-        print(f"Invalid data: {e}, please try again\n")
+        print(f"{Fore.RED}Invalid data:{Fore.RESET} {e}, please try again\n")
         return False
 
     return True
@@ -152,7 +155,7 @@ def get_level():
     Gets level value from user and creates word list accordingly
     """
     while True:
-        chosen_level = input("Choose your level:\n 1. Easy\n 2. Medium\n 3. Hard\n")
+        chosen_level = input("Choose your level:\n\n 1. Easy\n 2. Medium\n 3. Hard\n")
         level = Level(chosen_level).decide_level()
 
         if validate_level(chosen_level):
@@ -197,10 +200,10 @@ def validate_letter(letter):
     try:
         if (letter not in alphabet):
             raise ValueError(
-                f"Please only guess single letters (a-z). You typed {letter}"
+                f"Please only guess single letters (a-z). You typed {Style.BRIGHT}{letter}{Style.RESET_ALL}"
             )
     except ValueError as e:
-        print(f"Invalid data: {e}.\n")
+        print(f"{Fore.RED}Invalid data:{Fore.RESET} {e}.\n")
         return False
 
     return True
@@ -225,7 +228,7 @@ def handle_lives():
     """
     global lives
     lives = lives - 1 
-    print(f"Wrong letter! You have {lives} lives left.")
+    print(f"Wrong letter! You have {Style.BRIGHT}{lives} lives left.\n")
 
 
 def check_letter():
@@ -246,10 +249,10 @@ def check_letter():
 
     # tells user to guess again if letter is already guessed
     elif player_letter in used_letters:
-        print("Sorry, you've already guessed this one. Try a different letter!")
+        print("Sorry, you've already guessed this one. Try a different letter!\n")
     # validate user input is a letter
     else:
-        print("This one isn't valid. Please only guess single letters!")
+        print("This one isn't valid. Please only guess single letters!\n")
 
 
 def display_word():
@@ -257,20 +260,20 @@ def display_word():
     Shows user correctly guessed letters
     """
     correct_letters = [letter if letter in used_letters else "_" for letter in word]
-    print(f"Try to guess this word: {' '.join(correct_letters)}")
+    print(f"Try to guess this word: {Fore.LIGHTGREEN_EX}{' '.join(correct_letters)}\n")
 
 
 def run_intro():
     """
     Displays logo, game introduction and rules
     """
-    print(logo)
+    print(f"{Style.BRIGHT}{Fore.GREEN}{logo}")
     print("Welcome! And try not to get hung...\n")
     print("First, choose your skill level. The word you have to guess gets longer the higher your level is.\n")
     print("Then try and guess the mystery word one letter at a time before you're out of lives.\n")
-    print("You'll start off with 10 lives. For each wrong guess you lose one and your gallows gets built more until you dangle.\n") 
-    print("If you want to play again, simply restart the game by pressing the RUN GAME button at the top.\n")
-    print("GOOD LUCK 🤞\n")
+    print(f"You'll start off with {Style.BRIGHT}10 {Style.RESET_ALL}lives. For each wrong guess you lose one and your gallows gets built more until you dangle.\n") 
+    print(f"If you want to play again, simply restart the game by pressing the {Style.DIM}{Fore.GREEN}RUN GAME {Style.RESET_ALL}button at the top.\n")
+    print(f"{Fore.LIGHTYELLOW_EX}GOOD LUCK 🤞\n")
     
 
 def run_game():
@@ -280,20 +283,20 @@ def run_game():
     print(word) #remove later
 
     while len(word_letters) > 0 and lives > 0:
-        print(f"You've guessed these letters so far: {' '.join(used_letters)}")
+        print(f"You've guessed these letters so far: {Style.BRIGHT}{Fore.RED}{' '.join(used_letters)}\n")
 
         display_word()
 
         check_letter()
 
-        print(lives_images[lives])
+        print(f"{Style.BRIGHT}{Fore.RED}{lives_images[lives]}")
 
         if lives == 0:
-            print(f"Sorry, you're dangling 😢 The word was {word}")
+            print(f"Sorry, you're dangling 😢 The word was {Style.BRIGHT}{word.upper()}")
             break
         elif len(word_letters) == 0:
             display_word()
-            print("🎉 Well done! You guessed the whole word 🎉")
+            print("🎉 WELL DONE! You guessed the whole word 🎉")
             break
 
 
