@@ -5,6 +5,18 @@ In this terminal based game of classic Hangman, the player tries to guess a word
 
 This project was built with Python3 as the "Python's Essentials" Project (portfolio project 3) for Code Insitute. 
 
+[Link to live site](https://get-hung.herokuapp.com/)
+
+![Responsive mock-up](assets/images/mockup.JPG)
+
+
+## Planning
+
+The following flowchart (created with [daigrams.net](https://app.diagrams.net/)) visualizes the planning process for this application.
+
+![Flowchart](assets/images/GetHungFlow1.1.png)
+
+
 ## Fixed Bugs
 
 **Word not displaying fully when game won**:
