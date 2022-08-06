@@ -20,6 +20,10 @@ This project was built with Python3 as the "Python's Essentials" Project (portfo
     - [Programm Goals](#programm-goals)
     - [User Stories](#user-stories)
 
+- [Features](#features)
+    - [Existing Features](#existing-features)
+    - [Future Features](#possible-future-features)
+
 - [Bugs](#bugs)
     - [Fixed bugs](#fixed-bugs)
     - [Unfixed bugs](#unfixed-bugs)
@@ -77,6 +81,84 @@ The goal of this programm is to provide the user with a simple, easy to understa
 
 - be able to make modifications to the game (see [future features](#possible-future-features))
 - offer the user a short yet entertaining game
+
+
+## Features
+
+### Existing Features
+
+**Logo**
+- Displays game title using ASCII
+
+![logo](assets/images/logo.JPG)
+
+**Introduction and Rules**
+- Gives the user a brief run through the game and how to play it
+
+![game intro](assets/images/intro-rules.JPG)
+
+**Level choice**
+- Allows user to choose one of three difficulty levels
+
+![level choice](assets/images/level-choice.JPG)
+
+**Invalid Data Error**
+- Informs the user if input data was not valid
+- Tells the user which data type is required and what was typed incorrectly
+- Displays for invalid level and letter input
+
+![invalid level](assets/images/invalid-level.JPG)
+
+![invalid letter](assets/images/invalid-letter.JPG)
+
+**Used letters display**
+- Lists the letters that the user has guessed
+
+![used letters](assets/images/used-letters.JPG)
+
+**Duplicated letter message**
+- Informs the user when a letter guess is duplicate
+- Tell user to guess a different letter
+
+![duplicate letter](assets/images/duplicate-letter.JPG)
+
+**Word display**
+- Displays all correctly guessed letters
+- Gradually builds entire word
+
+![word display](assets/images/word-display.JPG)
+
+**Lives count**
+- Informs user of remaining lives after each wrong guess
+
+![lives count](assets/images/lives-count.JPG)
+
+**Gallows graphics**
+- Visualises the loss of live by adding a section to the gallows graphics for each wrong guess
+
+![gallows graphics](assets/images/gallows.JPG)
+
+**Game won message**
+- Informs and congratulates user when game is won
+- Shows after fully displayed word
+
+![game won message](assets/images/game-won.JPG)
+
+**Game lost message**
+- Informs user when game is lost
+- Reveals to user the word that was to be guessed
+
+![game lost message](assets/images/game-lost.JPG)
+
+
+### Possible Future Features
+
+**Typing effect**
+- Will type out print statements in terminal letter by letter to mimic type writer effect
+
+**Single display game progression**
+- Game progression will show in terminal as progressively building a single display
+- This will prevent a continues flow of output and down-scrolling
 
 
 ## Bugs
