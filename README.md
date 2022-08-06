@@ -16,6 +16,10 @@ This project was built with Python3 as the "Python's Essentials" Project (portfo
 
 - [Design](#design)
 
+- [UX](#ux)
+    - [Programm Goals](#programm-goals)
+    - [User Stories](#user-stories)
+
 - [Bugs](#bugs)
     - [Fixed bugs](#fixed-bugs)
     - [Unfixed bugs](#unfixed-bugs)
@@ -46,8 +50,36 @@ General information, such as already guessed letters, is either displayed in yel
 Emojis are used in the introduction and termination of the game (both won or lost) to make up for the general lack of images.
 
 
-## Bugs
+## UX
 
+### Programm Goals
+
+The goal of this programm is to provide the user with a simple, easy to understand and play game of hangman that can be played multiple times without the challenge being repeated.
+
+### User Stories
+
+**As a user I want to**
+
+- be able to read an introduction when first loading the programm
+- read the rules to the game in short and consice text
+- choose a difficulty level
+- know how many lives I start off with
+- be informed if my data input is not valid and why
+- see which letters I have already guessed
+- see the word being displayed for every correct guess
+- be informed how many lives I have left after a wrong guess
+- see a graphic visualising my lost lives
+- learn the word to be guessed after losing the game
+- see the full word displayed after completing the game successfully
+- know when the game is over (won or lost)
+
+**As a site administrator I want to**
+
+- be able to make modifications to the game (see [future features](#possible-future-features))
+- offer the user a short yet entertaining game
+
+
+## Bugs
 
 ### Fixed Bugs
 

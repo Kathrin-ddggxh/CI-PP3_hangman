@@ -286,7 +286,6 @@ def run_game():
     """
     Runs a loop to determine when game is finished
     """
-    print(word) #remove later
 
     while len(word_letters) > 0 and lives > 0:
         print(f"You've guessed these letters so far: {Style.BRIGHT}{Fore.RED}{' '.join(used_letters)}\n")
