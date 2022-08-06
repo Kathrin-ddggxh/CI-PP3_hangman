@@ -1,64 +1,65 @@
-import random   # generates random numbers
-import string   # module for string manipulation
-from words import words # imports word list from word.py
+import random  # generates random numbers
+import string  # module for string manipulation
+from words import words  # imports word list from word.py
 import colorama
 from colorama import Fore, Back, Style  # enables different coloured text
 from time import sleep  # allows time delay for print statements
+
 colorama.init(autoreset=True)
 
 alphabet = set(string.ascii_uppercase)  # stores letters A-Z
 used_letters = set()  # stores letters already guessed
-lives = 10  # equivalent to number of strokes in hangman image 
+lives = 10  # equivalent to number of strokes in hangman image
 
 logo = """
-   ___     _                              
-  / _ \___| |_    /\  /\_   _ _ __   __ _ 
- / /_\/ _ \ __|  / /_/ / | | | '_ \ / _` |
-/ /_\\\  __/ |_  / __  /| |_| | | | | (_| |
-\____/\___|\__| \/ /_/  \__,_|_| |_|\__, |
-                                    |___/ 
+   ___     _
+  / _ \\___| |_    /\\  /\\_   _ _ __   __ _
+ / /_\\/ _ \\ __|  / /_/ / | | | '_ \\ / _` |
+/ /_\\\\  __/ |_  / __  /| |_| | | | | (_| |
+\\____/\\___|\\__| \\/ /_/  \\__,_|_| |_|\\__, |
+                                    |___/
 """
 
 lives_images = {
     0: """
             ___________
-            | /        | 
+            | /        |
             |/        ( )
-            |         \\|/ 
+            |         \\|/
             |          |
             |         / \\
             |
         """,
     1: """
             ___________
-            | /        | 
+            | /        |
             |/        ( )
-            |         \\| 
+            |         \\|
             |          |
             |         / \\
             |
         """,
     2: """
             ___________
-            | /        | 
+            | /        |
             |/        ( )
-            |          | 
+            |          |
             |          |
             |         / \\
             |
         """,
     3: """
             ___________
-            | /        | 
+            | /        |
             |/        ( )
             |          |
             |          |
-            |         / 
+            |         /
             |
         """,
     4: """
             ___________
-            | /        | 
+            | /        |
             |/        ( )
             |          |
             |          |
@@ -67,38 +68,38 @@ lives_images = {
         """,
     5: """
             ___________
-            | /        | 
+            | /        |
             |/        ( )
-            |          
-            |          
+            |
+            |
             |
             |
         """,
     6: """
             ___________
-            | /        | 
-            |/        
-            |          
-            | 
-            |         
+            | /        |
+            |/
+            |
+            |
+            |
             |
         """,
     7: """
             ___________
-            | /        
-            |/        
-            |          
+            | /
+            |/
             |
-            |          
+            |
+            |
             |
         """,
     8: """
             ___________
-            |         
             |
-            |        
-            |          
-            |          
+            |
+            |
+            |
+            |
             |
         """,
     9: """
@@ -112,12 +113,14 @@ lives_images = {
     10: "",
 }
 
+
 class Level:
     """
     Level class
     """
+
     def __init__(self, level):
-        self.level = level 
+        self.level = level
 
     def decide_level(self):
         """
@@ -125,13 +128,19 @@ class Level:
         """
 
         if self.level == "1":
-            print(f"{Style.BRIGHT}{Fore.LIGHTBLUE_EX}Easy:{Style.RESET_ALL} Get hung for the lamb!\n")
+            print(
+                f"{Style.BRIGHT}{Fore.LIGHTBLUE_EX}Easy:{Style.RESET_ALL} Get hung for the lamb!\n"
+            )
             return "Easy"
         elif self.level == "2":
-            print(f"{Style.BRIGHT}{Fore.LIGHTYELLOW_EX}Medium:{Style.RESET_ALL} Get hung for the sheep!\n")
+            print(
+                f"{Style.BRIGHT}{Fore.LIGHTYELLOW_EX}Medium:{Style.RESET_ALL} Get hung for the sheep!\n"
+            )
             return "Medium"
         elif self.level == "3":
-            print(f"{Style.BRIGHT}{Fore.LIGHTRED_EX}Hard:{Style.RESET_ALL} Get hung for the whole herd!\n")
+            print(
+                f"{Style.BRIGHT}{Fore.LIGHTRED_EX}Hard:{Style.RESET_ALL} Get hung for the whole herd!\n"
+            )
             return "Hard"
 
 
@@ -147,22 +156,21 @@ def validate_level(value):
     except ValueError as e:
         print(f"{Fore.RED}Invalid data:{Fore.RESET} {e}, please try again\n")
         return False
-
     return True
 
-       
+
 def get_level():
     """
     Gets level value from user and creates word list accordingly
     """
     while True:
-        chosen_level = input("Choose your level:\n\n 1. Easy\n 2. Medium\n 3. Hard\n")
+        chosen_level = input(
+            "Choose your level:\n\n 1. Easy\n 2. Medium\n 3. Hard\n")
         level = Level(chosen_level).decide_level()
 
         if validate_level(chosen_level):
             filter_words(words, level)
             break
-
     word_list = filter_words(words, level)
 
     return word_list
@@ -174,7 +182,7 @@ def filter_words(words, level):
     depending on chosen level
     """
     if level == "Easy":
-        easy = [word for word in words if len(word) < 5]  
+        easy = [word for word in words if len(word) < 5]
         return easy
     elif level == "Medium":
         Medium = [word for word in words if len(word) < 10]
@@ -182,7 +190,7 @@ def filter_words(words, level):
     elif level == "Hard":
         hard = [word for word in words if len(word) >= 10]
         return hard
-      
+
 
 def get_word(words):
     """
@@ -199,27 +207,25 @@ def validate_letter(letter):
     Validates user input is letter (a-z)
     """
     try:
-        if (letter not in alphabet):
+        if letter not in alphabet:
             raise ValueError(
                 f"Please only guess single letters (a-z). You typed {Style.BRIGHT}{letter}{Style.RESET_ALL}"
             )
     except ValueError as e:
         print(f"{Fore.RED}Invalid data:{Fore.RESET} {e}.\n")
         return False
-
     return True
 
 
 def get_user_letter():
     """
     Starts the game by asking user for letter input
-    """ 
+    """
     while True:
         user_letter = input("Guess a letter:\n").upper()
 
         if validate_letter(user_letter):
             break
-
     return user_letter
 
 
@@ -228,17 +234,17 @@ def handle_lives():
     Decrements lives for each wrong guess
     """
     global lives
-    lives = lives - 1 
+    lives = lives - 1
     print(f"Wrong letter! You have {Style.BRIGHT}{lives} lives left.\n")
 
 
 def check_letter():
     """
-    Checks if guessed letter has already been guessed 
+    Checks if guessed letter has already been guessed
     and if letter is in word
     """
-    player_letter = get_user_letter() # current guessed letter
-    
+    player_letter = get_user_letter()  # current guessed letter
+
     # adds guessed letter to used letters set
     if player_letter in alphabet - used_letters:
         used_letters.add(player_letter)
@@ -247,7 +253,6 @@ def check_letter():
             word_letters.remove(player_letter)
         else:
             handle_lives()
-
     # tells user to guess again if letter is already guessed
     elif player_letter in used_letters:
         print("Sorry, you've already guessed this one. Try a different letter!\n")
@@ -260,8 +265,10 @@ def display_word():
     """
     Shows user correctly guessed letters
     """
-    correct_letters = [letter if letter in used_letters else "_" for letter in word]
-    print(f"Try to guess this word: {Fore.LIGHTGREEN_EX}{' '.join(correct_letters)}\n")
+    correct_letters = [
+        letter if letter in used_letters else "_" for letter in word]
+    print(
+        f"Try to guess this word: {Fore.LIGHTGREEN_EX}{' '.join(correct_letters)}\n")
 
 
 def run_intro():
@@ -271,16 +278,24 @@ def run_intro():
     print(f"{Style.BRIGHT}{Fore.GREEN}{logo}")
     print("Welcome! And try not to get hung...\n")
     sleep(1)
-    print("First, choose your skill level. The word you have to guess gets longer the higher your level is.\n")
-    sleep(.5)
-    print("Then try and guess the mystery word one letter at a time before you're out of lives.\n")
-    sleep(.5)
-    print(f"You'll start off with {Style.BRIGHT}10 {Style.RESET_ALL}lives. For each wrong guess you lose one and your gallows gets built more until you dangle.\n") 
-    sleep(.5)
-    print(f"If you want to play again, simply restart the game by pressing the {Style.BRIGHT}{Fore.GREEN}RUN GAME {Style.RESET_ALL}button at the top.\n")
-    sleep(.5)
+    print(
+        "First, choose your skill level. The word you have to guess gets longer the higher your level is.\n"
+    )
+    sleep(0.5)
+    print(
+        "Then try and guess the mystery word one letter at a time before you're out of lives.\n"
+    )
+    sleep(0.5)
+    print(
+        f"You'll start off with {Style.BRIGHT}10 {Style.RESET_ALL}lives. For each wrong guess you lose one and your gallows gets built more until you dangle.\n"
+    )
+    sleep(0.5)
+    print(
+        f"If you want to play again, simply restart the game by pressing the {Style.BRIGHT}{Fore.GREEN}RUN GAME {Style.RESET_ALL}button at the top.\n"
+    )
+    sleep(0.5)
     print(f"{Fore.LIGHTYELLOW_EX}GOOD LUCK 🤞\n")
-    
+
 
 def run_game():
     """
@@ -288,7 +303,9 @@ def run_game():
     """
 
     while len(word_letters) > 0 and lives > 0:
-        print(f"You've guessed these letters so far: {Style.BRIGHT}{Fore.RED}{' '.join(used_letters)}\n")
+        print(
+            f"You've guessed these letters so far: {Style.BRIGHT}{Fore.RED}{' '.join(used_letters)}\n"
+        )
 
         display_word()
 
@@ -297,7 +314,8 @@ def run_game():
         print(f"{Style.BRIGHT}{Fore.RED}{lives_images[lives]}")
 
         if lives == 0:
-            print(f"Sorry, you're dangling 😢 The word was {Style.BRIGHT}{word.upper()}")
+            print(
+                f"Sorry, you're dangling 😢 The word was {Style.BRIGHT}{word.upper()}")
             break
         elif len(word_letters) == 0:
             display_word()
@@ -316,5 +334,6 @@ def main():
     word = get_word(word_list)
     word_letters = set(word)
     run_game()
-    
+
+
 main()

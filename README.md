@@ -24,7 +24,12 @@ This project was built with Python3 as the "Python's Essentials" Project (portfo
     - [Existing Features](#existing-features)
     - [Future Features](#possible-future-features)
 
-- [Bugs](#bugs)
+- [Data Model](#data-model)
+
+- [Testing](#testing)
+    - [Validator Testing](#validator-testing)
+
+- [Debugging](#debugging)
     - [Fixed bugs](#fixed-bugs)
     - [Unfixed bugs](#unfixed-bugs)
 
@@ -161,9 +166,35 @@ The goal of this programm is to provide the user with a simple, easy to understa
 - This will prevent a continues flow of output and down-scrolling
 
 
-## Bugs
+## Data Model
+
+*Utilising Class and OOP*
+
+For the sake of using Python ```class``` in this project I created the ```class Level``` which creates three different instances of ```Level```, according to the user choice of difficulty level.
+```Level``` has a property of ```self.level```. Its ```decide_level``` method determines which skill level the will be plaid at, depending on the user input.
+
+*Data Validation*
+
+To make use of the ```try``` and ```except``` statements, I created the two functions ```validate_level``` and ```validate_letter```. Both functions raise a value error if data input by the user is not valid for each specific case. 
+In the initial version invalid data was simply handled with a print statement in an ```else``` clause (which may have sufficed in the case of this simple application). But for the sake of writing industry compliant code, I decided to outsource data validation to a specific function that raises a proper error. 
+
+## Testing
+
+### Validator Testing
+
+- HTML, CSS and JavaScript validation does not apply to this project. The template provided by Code Institute as provided to all students is assumed to be tested for the above.
+No further change or manipulation of the template's default HTML, CSS and JavaScript files has been performed.
+
+- Python Validator [PEP8](http://pep8online.com/)
+
+
+## Debugging
 
 ### Fixed Bugs
+
+**Formatting**
+
+To guarantee consistent line breaks, whitespaces and indentation, run.py and words.py were formatted using [Black Playground](https://black.vercel.app/)
 
 **Word not displaying fully when game won**:
 
