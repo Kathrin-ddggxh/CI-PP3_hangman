@@ -10,6 +10,22 @@ This project was built with Python3 as the "Python's Essentials" Project (portfo
 ![Responsive mock-up](assets/images/mockup.JPG)
 
 
+## Index - Table of Contents
+
+- [Planning](#planning)
+
+- [Design](#design)
+
+- [Bugs](#bugs)
+    - [Fixed bugs](#fixed-bugs)
+    - [Unfixed bugs](#unfixed-bugs)
+
+- [Credits](#credits)
+    - [Data](#data)
+    - [Code](#code)
+    - [Styling](#styling)
+
+
 ## Planning
 
 The following flowchart (created with [daigrams.net](https://app.diagrams.net/)) visualizes the planning process for this application.
@@ -17,7 +33,23 @@ The following flowchart (created with [daigrams.net](https://app.diagrams.net/))
 ![Flowchart](assets/images/GetHungFlow1.1.png)
 
 
-## Fixed Bugs
+## Design
+
+As this is simple terminal based application, the design process for the user interface was limited.
+
+Different colour choices and bold text are used in order to highlight and categorise messages to the user.
+
+For example, error messages and wrong guesses are displayed in red, as is the gallows graphics to signify a negative event.
+The word itself is displayed green for every correct guess.
+General information, such as already guessed letters, is either displayed in yellow or simply bold.
+
+Emojis are used in the introduction and termination of the game (both won or lost) to make up for the general lack of images.
+
+
+## Bugs
+
+
+### Fixed Bugs
 
 **Word not displaying fully when game won**:
 
@@ -31,6 +63,10 @@ elif len(word_letters) == 0:
     display_word()
     print("🎉 Well done! You guessed the whole word 🎉")
 ```
+
+### Unfixed Bugs
+
+No unfixed bugs to date.
 
 ## Credits
 
