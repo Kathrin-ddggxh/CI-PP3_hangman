@@ -33,6 +33,8 @@ This project was built with Python3 as the "Python's Essentials" Project (portfo
     - [Fixed bugs](#fixed-bugs)
     - [Unfixed bugs](#unfixed-bugs)
 
+- [Deployment](#deployment)
+
 - [Credits](#credits)
     - [Data](#data)
     - [Code](#code)
@@ -212,6 +214,25 @@ elif len(word_letters) == 0:
 ### Unfixed Bugs
 
 No unfixed bugs to date.
+
+## Deployment
+
+This project was deployed with Heroku using Code Institute's mock terminal as provided with the Python Essentials template.
+
+To deploy:
+
+- Clone or fork this public repository
+- Create a Heroku account (if not already existing)
+- Create a new app with Heroku
+- In **Settings**, add 2 buildpacks:
+    - ```Python```
+    - ```NodeJS```
+    
+    Ensure the buildpacks are created in that order!
+
+- Allowing Heroku access to GitHub, link the new app to the relevant repository
+- Choose whether or not to enable **Automatic Deploys**. If enabled, the deployed app will update automatically with each push to GitHub
+- Click **Deploy**
 
 ## Credits
 
