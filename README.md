@@ -202,6 +202,23 @@ Ensuring all parts of the programm function as expected in all major browsers.
 | IE          |deprecated by Microsoft, not tested|
 
 
+### Testing User Stories (Functionality)
+
+| Expectation (As a user, I want to...)  | Result (As a user, I...)    |
+| :---------------------------------: | :------------------------------:|
+| be able to read an introduction when first loading the programm | see a quick game introduction print out on the screen when the programm loads |
+| read the rules to the game in short and consice text | see the game rules explained clearly as part of the introduction |
+| choose a difficulty level | can choose between 3 levels: easy, medium, hard |
+| know how many lives I start off with | I am clearly informed that I start off with 10 lives |
+| be informed if my data input is not valid and why | see an error message after I input invalid data, telling me what data type is required |
+| see which letters I have already guessed | can see my already guessed letters listed out on screen |
+| see the word being displayed for every correct guess | can see every correct letter being added to the word, spelling it out gradually |
+| be informed how many lives I have left after a wrong guess | I am told how many remaining lives I have after a wrong guess |
+| see a graphic visualising my lost lives | can see the gallows graphips building a section at a time for each wrong guess |
+| learn the word to be guessed after losing the game | can read the word printed out on screen after I lost the game |
+| see the full word displayed after completing the game successfully | can read the word fully spelled out after guessing it correctly |
+| know when the game is over (won or lost) | can read a message telling me I either won or lost the game when the game terminates |
+
 ## Debugging
 
 ### Fixed Bugs
