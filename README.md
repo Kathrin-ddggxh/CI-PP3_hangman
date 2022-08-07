@@ -28,6 +28,8 @@ This project was built with Python3 as the "Python's Essentials" Project (portfo
 
 - [Testing](#testing)
     - [Validator Testing](#validator-testing)
+    - [Browser Testing](#browser-testing)
+    - [Testing User Stories](#testing-user-stories-functionality)
 
 - [Debugging](#debugging)
     - [Fixed bugs](#fixed-bugs)

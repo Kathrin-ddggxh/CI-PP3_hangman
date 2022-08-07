@@ -11,8 +11,7 @@ alphabet = set(string.ascii_uppercase)  # stores letters A-Z
 used_letters = set()  # stores letters already guessed
 lives = 10  # equivalent to number of strokes in hangman image
 
-logo = """
-   ___     _
+logo = """   ___     _
   / _ \\___| |_    /\\  /\\_   _ _ __   __ _
  / /_\\/ _ \\ __|  / /_/ / | | | '_ \\ / _` |
 / /_\\\\  __/ |_  / __  /| |_| | | | | (_| |
@@ -118,7 +117,6 @@ class Level:
     """
     Level class
     """
-
     def __init__(self, level):
         self.level = level
 
@@ -126,7 +124,6 @@ class Level:
         """
         Decides level based on user input
         """
-
         if self.level == "1":
             print(
                 f"{Style.BRIGHT}{Fore.LIGHTBLUE_EX}Easy:{Style.RESET_ALL} Get hung for the lamb!\n"
