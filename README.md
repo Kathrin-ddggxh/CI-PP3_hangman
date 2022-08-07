@@ -189,6 +189,18 @@ No further change or manipulation of the template's default HTML, CSS and JavaSc
 
 - Python Validator [PEP8](http://pep8online.com/)
 
+### Browser Testing
+
+Ensuring all parts of the programm function as expected in all major browsers.
+
+| Browser     | Layout      | Functionality |
+| :---------: | :----------:| :-----------: |
+| Chrome      | ✔          | ✔             |
+| Edge        | ✔          | ✔             |
+| Firefox     | ✔          | ✔             |
+| Safari      | ✔          | ✔             |
+| IE          |deprecated by Microsoft, not tested|
+
 
 ## Debugging
 
@@ -252,6 +264,10 @@ To deploy:
 
 
 ### Code
+
+- **Template and Terminal**
+
+    [Python Essentials Template](https://github.com/Code-Institute-Org/python-essentials-template) provided by Code Institute 
 
 - **Hangman Game**
 
