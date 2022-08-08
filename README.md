@@ -189,7 +189,9 @@ In the initial version invalid data was simply handled with a print statement in
 - HTML, CSS and JavaScript validation does not apply to this project. The template provided by Code Institute as provided to all students is assumed to be tested for the above.
 No further change or manipulation of the template's default HTML, CSS and JavaScript files has been performed.
 
-- Python Validator [PEP8](http://pep8online.com/)
+- Python Validator [PEP8](http://pep8online.com/): No errors or warnings in final version
+
+![PEP8 results](assets/images/pep8-results.JPG)
 
 ### Browser Testing
 
