@@ -125,17 +125,21 @@ class Level:
         Decides level based on user input
         """
         if self.level == "1":
-            print(f"{Style.BRIGHT}{Fore.LIGHTBLUE_EX}Easy:{Style.RESET_ALL} Get hung for the lamb!\n"
+            print(
+                f"{Style.BRIGHT}{Fore.LIGHTBLUE_EX}Easy:",
+                f"{Style.RESET_ALL} Get hung for the lamb!\n"
             )
             return "Easy"
         elif self.level == "2":
             print(
-                f"{Style.BRIGHT}{Fore.LIGHTYELLOW_EX}Medium:{Style.RESET_ALL} Get hung for the sheep!\n"
+                f"{Style.BRIGHT}{Fore.LIGHTYELLOW_EX}Medium:",
+                f"{Style.RESET_ALL} Get hung for the sheep!\n"
             )
             return "Medium"
         elif self.level == "3":
             print(
-                f"{Style.BRIGHT}{Fore.LIGHTRED_EX}Hard:{Style.RESET_ALL} Get hung for the whole herd!\n"
+                f"{Style.BRIGHT}{Fore.LIGHTRED_EX}Hard:",
+                f"{Style.RESET_ALL} Get hung for the whole herd!\n"
             )
             return "Hard"
 
@@ -147,7 +151,8 @@ def validate_level(value):
     try:
         if (value != "1") and (value != "2") and (value != "3"):
             raise ValueError(
-                f"Please only enter 1, 2 or 3. You typed {Style.BRIGHT}{value}{Style.RESET_ALL}"
+                f"Please only enter 1, 2 or 3. You typed "
+                f"{Style.BRIGHT}{value}{Style.RESET_ALL}"
             )
     except ValueError as e:
         print(f"{Fore.RED}Invalid data:{Fore.RESET} {e}, please try again\n")
@@ -205,7 +210,8 @@ def validate_letter(letter):
     try:
         if letter not in alphabet:
             raise ValueError(
-                f"Please only guess single letters (a-z). You typed {Style.BRIGHT}{letter}{Style.RESET_ALL}"
+                f"Please only guess single letters (a-z). "
+                f"You typed {Style.BRIGHT}{letter}{Style.RESET_ALL}"
             )
     except ValueError as e:
         print(f"{Fore.RED}Invalid data:{Fore.RESET} {e}.\n")
@@ -251,7 +257,10 @@ def check_letter():
             handle_lives()
     # tells user to guess again if letter is already guessed
     elif player_letter in used_letters:
-        print("Sorry, you've already guessed this one. Try a different letter!\n")
+        print(
+            f"{Fore.LIGHTRED_EX}Sorry, you've already guessed this one. "
+            f"Try a different letter!\n"
+        )
     # validate user input is a letter
     else:
         print("This one isn't valid. Please only guess single letters!\n")
@@ -264,7 +273,9 @@ def display_word():
     correct_letters = [
         letter if letter in used_letters else "_" for letter in word]
     print(
-        f"Try to guess this word: {Fore.LIGHTGREEN_EX}{' '.join(correct_letters)}\n")
+        f"Try to guess this word: "
+        f"{Fore.LIGHTGREEN_EX}{' '.join(correct_letters)}\n"
+    )
 
 
 def run_intro():
@@ -275,19 +286,25 @@ def run_intro():
     print("Welcome! And try not to get hung...\n")
     sleep(1)
     print(
-        "First, choose your skill level. The word you have to guess gets longer the higher your level is.\n"
+        "First, choose your skill level. The word you have to guess "
+        "gets longer the higher your level is.\n"
     )
     sleep(0.5)
     print(
-        "Then try and guess the mystery word one letter at a time before you're out of lives.\n"
+        "Then try and guess the mystery word one letter at a time "
+        "before you're out of lives.\n"
     )
     sleep(0.5)
     print(
-        f"You'll start off with {Style.BRIGHT}10 {Style.RESET_ALL}lives. For each wrong guess you lose one and your gallows gets built more until you dangle.\n"
+        f"You'll start off with {Style.BRIGHT}10 "
+        f"{Style.RESET_ALL}lives. For each wrong guess you lose one "
+        f"and your gallows gets built more until you dangle.\n"
     )
     sleep(0.5)
     print(
-        f"If you want to play again, simply restart the game by pressing the {Style.BRIGHT}{Fore.GREEN}RUN GAME {Style.RESET_ALL}button at the top.\n"
+        f"If you want to play again, simply restart the game "
+        f"by pressing the {Style.BRIGHT}{Fore.GREEN}RUN GAME "
+        f"{Style.RESET_ALL}button at the top.\n"
     )
     sleep(0.5)
     print(f"{Fore.LIGHTYELLOW_EX}GOOD LUCK 🤞\n")
@@ -300,7 +317,8 @@ def run_game():
 
     while len(word_letters) > 0 and lives > 0:
         print(
-            f"You've guessed these letters so far: {Style.BRIGHT}{Fore.RED}{' '.join(used_letters)}\n"
+            f"You've guessed these letters so far: "
+            f"{Style.BRIGHT}{Fore.RED}{' '.join(used_letters)}\n"
         )
 
         display_word()
@@ -311,7 +329,8 @@ def run_game():
 
         if lives == 0:
             print(
-                f"Sorry, you're dangling 😢 The word was {Style.BRIGHT}{word.upper()}")
+                f"Sorry, you're dangling 😢 "
+                f"The word was {Style.BRIGHT}{word.upper()}")
             break
         elif len(word_letters) == 0:
             display_word()
