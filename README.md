@@ -189,9 +189,21 @@ In the initial version invalid data was simply handled with a print statement in
 - HTML, CSS and JavaScript validation does not apply to this project. The template provided by Code Institute as provided to all students is assumed to be tested for the above.
 No further change or manipulation of the template's default HTML, CSS and JavaScript files has been performed.
 
-- Python Validator [PEP8](http://pep8online.com/): No errors or warnings in final version
+- Python Validator [PEP8](http://pep8online.com/)
 
-![PEP8 results](assets/images/pep8-results.JPG)
+    - **Error**: Line too long on 13 lines of code
+
+    - **Solution**: Break up lines of code using ``` \ ```
+
+    No further errors or warnings.
+
+    ![PEP8 results](assets/images/pep8-final-result.JPG)
+
+- Performance, Accessibility, SEO, Best Practices (Lighthouse Chrome DevTools)
+
+    ![Lighthouse results](assets/images/lighthouse-results.JPG)
+
+    As SEO was not an objective of this particular project, I chose to be content with a rating that is barely below 90. 
 
 ### Browser Testing
 
