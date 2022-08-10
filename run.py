@@ -303,7 +303,7 @@ def run_intro():
     sleep(0.5)
     print(
         f"If you want to play again, simply restart the game "
-        f"by pressing the {Style.BRIGHT}{Fore.GREEN}RUN GAME "
+        f"by pressing the {Style.BRIGHT}{Fore.GREEN}RUN PROGRAMM "
         f"{Style.RESET_ALL}button at the top.\n"
     )
     sleep(0.5)
@@ -330,12 +330,32 @@ def run_game():
         if lives == 0:
             print(
                 f"Sorry, you're dangling 😢 "
-                f"The word was {Style.BRIGHT}{word.upper()}")
+                f"The word was {Style.BRIGHT}{word.upper()}\n")
             break
         elif len(word_letters) == 0:
             display_word()
-            print("🎉 WELL DONE! You guessed the whole word 🎉")
+            print("🎉 WELL DONE! You guessed the whole word 🎉\n")
             break
+
+
+def restart_game():
+    """
+    Asks user whether to restart game or not,
+    restarts if user chooses yes
+    """
+    global lives
+    word_letters = 0  # reset word to blank
+    lives = 10  # reset lives to 10
+    used_letters.clear()  # clear all used letters
+
+    restart_choice = input("Would you like to play again? Y/N\n").upper()
+
+    if restart_choice == "Y":
+        main()
+    elif restart_choice == "N":
+        print("OK, bye! Thanks for playing! 👋")
+    else:
+        print("Please only type Y/y or N/n\n")
 
 
 def main():
@@ -349,6 +369,7 @@ def main():
     word = get_word(word_list)
     word_letters = set(word)
     run_game()
+    restart_game()
 
 
 main()
