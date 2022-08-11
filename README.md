@@ -85,6 +85,7 @@ The goal of this programm is to provide the user with a simple, easy to understa
 - learn the word to be guessed after losing the game
 - see the full word displayed after completing the game successfully
 - know when the game is over (won or lost)
+- be able to restart the game or not when after it's finished
 
 **As a site administrator I want to**
 
@@ -158,6 +159,11 @@ The goal of this programm is to provide the user with a simple, easy to understa
 - Reveals to user the word that was to be guessed
 
 ![game lost message](assets/images/game-lost.JPG)
+
+**Restart Game option**
+- Offers user the choice to play again after finishing the game
+
+![restart game](assets/images/restart-game.JPG)
 
 
 ### Possible Future Features
@@ -234,6 +240,7 @@ Ensuring all parts of the programm function as expected in all major browsers.
 | learn the word to be guessed after losing the game | can read the word printed out on screen after I lost the game |
 | see the full word displayed after completing the game successfully | can read the word fully spelled out after guessing it correctly |
 | know when the game is over (won or lost) | can read a message telling me I either won or lost the game when the game terminates |
+| be able to restart the game or not when after it's finished | can choose between a Y/N option to restart the game after finishing |
 
 ## Debugging
 
